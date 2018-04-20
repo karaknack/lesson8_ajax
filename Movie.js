@@ -32,7 +32,7 @@ $(document).ready(function(){
 
             $.ajax({
                 //Insert YOUR API Key after the '=' inside the single quotes.
-                url:'https://api.themoviedb.org/3/search/movie?api_key=INSERT-HERE',
+                url:'https://api.themoviedb.org/3/search/movie?api_key=42787da048917131d5995cfee5f2e3d8',
                 data: query
             })
             
@@ -57,7 +57,7 @@ $(document).ready(function(){
                  
                  *********************************Insert Code Below********************************************/                
                 
-                
+                $("#overview").html(json.results[0].overview);
                 
 
                 /***********************Retrieve Movie Release Date from Server & Add to HTML Document***********
@@ -72,7 +72,7 @@ $(document).ready(function(){
                  
                  *********************************Insert Code Below********************************************/               
 
-
+                $("#release_date").html(json.results[0].release_date);
 
 
                  /***********************Retrieve Movie Popularity Rate from Server & Add to HTML Document******
@@ -87,7 +87,7 @@ $(document).ready(function(){
                  
                  *********************************Insert Code Below********************************************/   
 
-  
+                $("#popularity").html(json.results[0].popularity);
 
                 
                  /*****************Retrieve Movie Original Language from Server & Add to HTML Document***********
@@ -107,6 +107,7 @@ $(document).ready(function(){
                 //The following code retrieves the movie poster path from the JSON object retrieved from the TMDB 
                 //Server and places the poster image on the HTML page, where the id="poster_path".  It took TWO
                 //step to complete this step.
+                $("#original_language").html(json.results[0].original_language);
         
                 //Step 1:  Build the URL to send request to TMDB server with this movie's poster path
                 var posterURL = "https://image.tmdb.org/t/p/w500" + json.results[0].poster_path;
